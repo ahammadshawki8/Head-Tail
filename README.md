@@ -1,6 +1,6 @@
 ![head_tail.jpg](head_tail.jpg)
 # _Head-Tail_
-Head-Tail is basically a friendly version of Cricket which is played using fingers. Me and my friends are used to playing this game during boring lectures! This game is the official game of HTC (Head Tail Community). Every rules that you will see in this game are approved by the authority of HTC. The [previous version](old.py) of this game had no Graphical User Interface, which was initially designed in python3. This updated version has Graphical User Interface which is created using pygame library of python3.
+Head-Tail is basically a friendly version of Cricket which is played using fingers. Me and my friends are used to playing this game during boring lectures! This game is the official game of HTC (Head Tail Community). Every rules that you will see in this game are approved by the authority of HTC. The [previous version](old.py) of this game had no Graphical User Interface, which was initially designed in python3. This [updated version](Head_Tail_GUI.py) has Graphical User Interface which is created using pygame library of python3.
 
 # Features
 * Graphical User Interface with pygame.
