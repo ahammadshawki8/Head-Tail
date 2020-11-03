@@ -2,7 +2,6 @@ import pygame
 import random
 import time
 pygame.init()
-
 # Setting few properties
 win = pygame.display.set_mode((800,600))
 pygame.display.set_caption("Head Tail T20")
@@ -384,7 +383,6 @@ while True:
         elif keys[pygame.K_4]:
             ball = 4
             ball_pic = player1.four()
-            sound.play()
             counter += 1
         elif keys[pygame.K_5]:
             ball = 5
@@ -393,7 +391,6 @@ while True:
         elif keys[pygame.K_6]:
             ball = 6
             ball_pic = player1.six()
-            sound.play()
             counter += 1
 
     if counter == 10:
@@ -413,10 +410,12 @@ while True:
             run_pic = comp.three()
         elif run == 4:
             run_pic = comp.four()
+            sound.play()
         elif run == 5:
             run_pic = comp.five()
         elif run == 6:
             run_pic = comp.six()
+            sound.play()
 
         win.blit(run_pic,comp.area)
         win.blit(ball_pic,player1.area)
