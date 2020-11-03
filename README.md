@@ -15,6 +15,7 @@ Head-Tail is basically a friendly version of Cricket which is played using finge
 * Download [Python](https://www.python.org/downloads/) in your device.
 * Download the [Zip file](https://codeload.github.com/ahammadshawki8/Head-Tail/zip/main).
 * Extract the zip file.
+* Download pygame in your device by writing _pip download pygame_ in the command prompt. details can be found in [Pygame website](https://www.pygame.org).
 * Open the Head_Tail_GUI.py file with Python Shell.
 * Play the game and enjoy.
 
