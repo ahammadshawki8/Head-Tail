@@ -1,8 +1,3 @@
-# Have to work on -
-    # More Test
-    # Sound
-    # Music
-
 import pygame
 import random
 import time
