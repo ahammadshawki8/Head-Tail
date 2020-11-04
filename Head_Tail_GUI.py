@@ -2,6 +2,7 @@ import pygame
 import random
 import time
 pygame.init()
+
 # Setting few properties
 win = pygame.display.set_mode((800,600))
 pygame.display.set_caption("Head Tail T20")
@@ -120,7 +121,7 @@ counter_4 = False # Ensure credits display 1 time
 
 # main loop
 while True:
-    clock.tick(60)
+    clock.tick(5)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
