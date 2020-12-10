@@ -51,6 +51,7 @@ out = pygame.image.load("resources/slides/out.jpg")
 
 
 # Some useful outsider functions
+# display an image for centain time in the screen.
 def screen_timer(win,time,slide):
     i = 0
     while i < time+1:
@@ -62,6 +63,7 @@ def screen_timer(win,time,slide):
         i += 1
         pygame.display.update()
 
+# write a string and display it.
 def write(win,string,size,pos):
     font = pygame.font.SysFont("comicsans",size)
     text = font.render(string, 1, (0,0,0))
@@ -107,7 +109,7 @@ class Player:
 
 
 # Creating few properties for main_loop
-counter = 0
+counter = 0 # GAME-CHANGER
 player1 = Player(player_area)
 comp = Player(comp_area)
 player1.total=0
@@ -127,13 +129,15 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             break
-
+    
+    # counter 0 is for introduction
     if counter == 0:
         screen_timer(win,200,poster)
         screen_timer(win,100,hi)
         screen_timer(win,100,name)
         counter += 1
-
+    
+    # counter 1 is for proposal for play
     if counter == 1:
         win.blit(proposal, (0,0))
         pygame.display.update()
@@ -143,7 +147,8 @@ while True:
             counter += 1
         elif keys[pygame.K_n]:
             counter = -1  
-
+    
+    # counter 2 is for toss setup
     if counter == 2:
         win.blit(hot, (0,0))
         pygame.display.update()
@@ -155,7 +160,7 @@ while True:
             player1.toss = "tails"
             counter += 1   
         
-    
+    # counter 3 is for player toss selection
     if counter == 3:
         win.blit(bg, (0,0))
         write(win,"TOSSING....",45,(340,20))
@@ -190,7 +195,8 @@ while True:
             player_num = 6
             player_pic = player1.six()
             counter += 1
-
+    
+    # counter 4 is for computer toss and toss results
     if counter == 4:
         comp_num = random.choice(score_list)
         if comp_num == 0:
@@ -226,7 +232,9 @@ while True:
             screen_timer(win,150,lost_toss)
 
         counter += 1
-
+    
+    
+    # counter 5 is for 'first' batting or balling question part
     if counter == 5:
         if toss_winner:
             win.blit(bob,  (0,0))
@@ -242,7 +250,8 @@ while True:
         else:
             section = random.choice(bat_ball)
             counter += 1
-
+    
+    # counter 6 is for 'first' batting or balling selection part 
     if counter == 6:
         if section=="batting":
             screen_timer(win,150,bat_first)
@@ -255,7 +264,7 @@ while True:
             old_section = "balling"
             counter = 9
 
-    # counter 7 is bat_part
+    # counter 7 is for batting part of player [connected to counter 8]
     if counter == 7:
         if not counter_7:
             player1.total=0
@@ -300,7 +309,8 @@ while True:
             run_pic = player1.six()
             sound.play()
             counter += 1
-
+    
+    # counter 8 is for balling part of computer [connected to counter 7]
     if counter == 8:
         if comp.dot_count>=2:
             ball=random.choice(score_list[1:])
@@ -350,7 +360,7 @@ while True:
 
 
 
-    # counter 9 is ball_part
+    # counter 9 is for balling part of player [connected with counter 10]
     if counter == 9:
         if not counter_9:
             player1.dot_count=0
@@ -393,7 +403,8 @@ while True:
             ball = 6
             ball_pic = player1.six()
             counter += 1
-
+    
+    # counter 10 is for batting part of computer [connected with counter 9]
     if counter == 10:
         if comp.dot_count>=2:
             run=random.choice(score_list[1:])
@@ -444,7 +455,7 @@ while True:
             counter = 9
                 
 
-    # counter -2 is result_part
+    # counter -2 is for result part of entire game
     if counter == -2:
         if counter_7 and counter_9:
             if player1.total > comp.total:
@@ -465,7 +476,7 @@ while True:
             counter = 7
             screen_timer(win,150,now_batting)
     
-    # counter -1 is disagreement
+    # counter -1 is for disagreement about we wont continue playing this game anymore.
     if counter == -1:
         screen_timer(win,400,disagree)
         pygame.quit()
@@ -494,7 +505,7 @@ while True:
         elif keys[pygame.K_n]:
             counter = -4
 
-    # counter -4 is credits part
+    # counter -4 is for credits
     if counter == -4:
         if not counter_4:
             screen_timer(win,250,quote)
